@@ -1,0 +1,23 @@
+{{- if .Values.istio.enabled }}
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{ include "openg2p.fullname" . }}
+  labels:
+    {{- include "openg2p.labels" . | nindent 4 }}
+spec:
+  hosts:
+  - "*"
+  gateways:
+    - {{ include "openg2p.fullname" . }}
+  http:
+  - route:
+    - destination:
+        host: {{ include "openg2p.fullname" . }}-odoo
+        port:
+          number: {{ .Values.odoo.service.port }}
+    headers:
+      request:
+        set:
+          x-forwarded-proto: https
+{{- end }}

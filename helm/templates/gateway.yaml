@@ -1,0 +1,18 @@
+{{- if .Values.istio.enabled  }}
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: {{ include "openg2p.fullname" . }}
+  labels:
+    {{- include "openg2p.labels" . | nindent 4 }}
+spec:
+  selector:
+    {{ toYaml .Values.istio.gateway.ingressController | nindent 4 }}
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+      - {{ .Values.istio.gateway.host }}
+{{- end }}

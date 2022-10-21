@@ -1,0 +1,11 @@
+apiVersion: v2
+name: openg2p
+description: A Helm chart for OpenG2P Package
+type: application
+version: 0.1.0
+appVersion: ""
+dependencies:
+- name: odoo
+  repository: https://charts.bitnami.com/bitnami
+  version: 21.6.5
+  condition: odoo.enabled

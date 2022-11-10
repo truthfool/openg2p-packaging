@@ -10,7 +10,12 @@ odoo:
 
   odooEmail: admin
 
+  livenessProbe:
+    enabled: false
+
   extraEnvVars:
+  - name: ODOO_SKIP_MODULES_UPDATE
+    value: "yes"
   - name: LIMIT_TIME_REAL
     value: "200"
   - name: LIST_DB
@@ -31,7 +36,17 @@ odoo:
 
 istio:
   enabled: false
+  virtualservice:
+    enabled: true
+    host: ""
+    gateway: ""
   gateway:
+    enabled: true
     host: ""
     ingressController:
       istio: ingressgateway
+    httpTlsRedirect: true
+    tls:
+      enabled: true
+      mode: SIMPLE
+      credentialName: ""

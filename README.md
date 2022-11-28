@@ -1,3 +1,3 @@
-# OpenG2P Package
+# OpenG2P Packaging
 
 ## About 

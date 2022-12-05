@@ -1,0 +1,52 @@
+odoo:
+  image:
+    repository: openg2p/openg2p-odoo-ref-impl
+    tag: "15.0"
+    pullPolicy: Always
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  odooEmail: admin
+
+  livenessProbe:
+    enabled: false
+
+  extraEnvVars:
+  - name: ODOO_SKIP_MODULES_UPDATE
+    value: "yes"
+  - name: LIMIT_TIME_REAL
+    value: "200"
+  - name: LIST_DB
+    value: "False"
+  - name: SERVER_WIDE_MODULES
+    value: web,queue_job
+  # not using bitnami smtpHost and smtpPort variables, because they need user and pass as well.
+  - name: OPENG2P_SMTP_HOST
+    value: ""
+  - name: OPENG2P_SMTP_PORT
+    value: ""
+
+  customPostInitScripts:
+    enable-openg2p-addons.sh: |
+      #!/usr/bin/env bash
+
+      /post-init-openg2p.sh
+
+istio:
+  enabled: false
+  virtualservice:
+    enabled: true
+    host: ""
+    gateway: ""
+  gateway:
+    enabled: true
+    host: ""
+    ingressController:
+      istio: ingressgateway
+    httpTlsRedirect: true
+    tls:
+      enabled: true
+      mode: SIMPLE
+      credentialName: ""

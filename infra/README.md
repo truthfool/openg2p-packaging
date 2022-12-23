@@ -112,3 +112,4 @@
 ## Import OpenG2P Cluster into Rancher.
 - Navigate to Cluster Management section in Rancher.
 - Click on `Import Existing` cluster. And follow the steps to import the openg2p cluster.
+- After Rancher import, donot use the the kubeconfig from server anymore. Use it only via downloading kubeconfig from rancher.

@@ -1,7 +1,7 @@
 odoo:
   image:
     repository: openg2p/openg2p-odoo-ref-impl
-    tag: "15.0"
+    tag: "15.0-develop"
     pullPolicy: Always
 
   service:
@@ -27,12 +27,11 @@ odoo:
     value: ""
   - name: OPENG2P_SMTP_PORT
     value: ""
+  - name: LOG_HANDLER
+    value: "[':DEBUG']"
+  - name: LOG_DB
+    value: "True"
 
-  customPostInitScripts:
-    enable-openg2p-addons.sh: |
-      #!/usr/bin/env bash
-
-      /post-init-openg2p.sh
 
 istio:
   enabled: false

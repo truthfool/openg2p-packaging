@@ -8,3 +8,5 @@ ADD docker-build.sh /opt/bitnami/odoo/extraaddons/
 ADD post-init-openg2p.sh /
 
 RUN /opt/bitnami/odoo/extraaddons/docker-build.sh
+RUN TO_REPLACE=$(grep "libodoo.sh" /opt/bitnami/scripts/odoo/run.sh); \
+    sed -i "s#$TO_REPLACE#$TO_REPLACE\n/post-init-openg2p.sh#g" /opt/bitnami/scripts/odoo/run.sh

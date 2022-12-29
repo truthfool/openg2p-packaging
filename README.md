@@ -1,7 +1,6 @@
 # OpenG2P Packaging
 
-This repo contains scripts and instructions for packaging different components or implementations of OpenG2P into a docker.
-Along with instructions to install them.
+This repo contains scripts and instructions for packaging different components or implementations of OpenG2P into a docker and instructions to install them.
 
 ## Packaging Instructions
 

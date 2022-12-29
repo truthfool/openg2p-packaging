@@ -4,7 +4,7 @@ This repo contains scripts and instructions for packaging different components o
 
 ## Packaging Instructions
 
-- Go to Packaging folder
+- Enter `packaging` folder
     ```sh
     cd packaging
     ```

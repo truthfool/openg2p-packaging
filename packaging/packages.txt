@@ -1,5 +1,0 @@
-openg2p_registry = git://15.0-develop//http://github.com/openg2p/openg2p-registry
-openg2p_program = git://15.0-develop//http://github.com/openg2p/openg2p-program
-openg2p_mts = git://15.0-develop//http://github.com/openg2p/openg2p-mts
-openg2p_theme = git://15.0-develop//http://github.com/openg2p/openg2p-theme
-odoo_formio = git://15.0//http://github.com/novacode-nl/odoo-formio

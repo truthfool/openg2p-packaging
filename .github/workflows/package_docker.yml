@@ -1,0 +1,40 @@
+name: OpenG2P Odoo Package Dockers build
+
+on:
+  push: {}
+  workflow_dispatch: {}
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    env:
+      NAMESPACE: ${{ secrets.docker_hub_organisation }}
+      SERVICE_NAME: openg2p-odoo-package
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Docker Login
+        run: |
+          echo "${{ secrets.docker_hub_token }}" | docker login -u ${{ secrets.docker_hub_actor }} --password-stdin || echo "::warning::Failed to Login to dockerhub"
+
+      - name: Docker build & push
+        run: |
+          export IMAGE_ID=$NAMESPACE/$SERVICE_NAME
+
+          cd packaging
+
+          for package in packages/*.txt; do
+            export VERSION=$(basename "${package}" ".txt")
+            if [[ $VERSION == 15.0-* ]]; then
+              export OCA_DEPENDENCY_VERSION="15.0"
+              export DOCKER_BASE_TAG="15.0.20220810-debian-11-r9"
+            # elif [[ $VERSION == 16.0-* ]]; then
+              # TODO
+            fi
+            ./package.sh ${package}
+            docker build . \
+              --build-arg BASE_VERSION=${DOCKER_BASE_TAG} \
+              --file Dockerfile \
+              --tag $IMAGE_ID:$VERSION
+            docker push $IMAGE_ID:$VERSION
+          done

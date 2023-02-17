@@ -1,6 +1,10 @@
+global:
+  hostname: "openg2p.sandbox.net"
+  selfServiceHostname: "selfservice.openg2p.sandbox.net"
+
 odoo:
   image:
-    repository: openg2p/openg2p-odoo-ref-impl
+    repository: openg2p/openg2p-odoo-package
     tag: "15.0-develop"
     pullPolicy: Always
 
@@ -24,23 +28,28 @@ odoo:
     value: web,queue_job
   # not using bitnami smtpHost and smtpPort variables, because they need user and pass as well.
   - name: OPENG2P_SMTP_HOST
-    value: ""
+    value: "openg2p-mail"
   - name: OPENG2P_SMTP_PORT
-    value: ""
+    value: "25"
   - name: LOG_HANDLER
     value: "[':DEBUG']"
   - name: LOG_DB
     value: "True"
 
+mail:
+  enabled: true
+  # domain name of installation
+  fullnameOverride: openg2p-mail
+  mailName: ""
 
 istio:
-  enabled: false
+  enabled: true
   virtualservice:
     enabled: true
     host: ""
-    gateway: ""
+    gateway: "istio-system/all-hosts"
   gateway:
-    enabled: true
+    enabled: false
     host: ""
     ingressController:
       istio: ingressgateway
@@ -49,3 +58,22 @@ istio:
       enabled: true
       mode: SIMPLE
       credentialName: ""
+
+postgresIngress:
+  enabled: true
+  type: istio # Define for type ingress
+  # host not need. Because tcp.
+  istioControllerLabel:
+    istio: ingressgateway
+  port: 5432
+
+selfServiceIngress:
+  enabled: true
+  type: istio
+  # TODO: Implement type: ingress 
+  istio:
+    enabled: true
+    virtualservice:
+      enabled: true
+      host: ""
+      gateway: "istio-system/all-hosts"

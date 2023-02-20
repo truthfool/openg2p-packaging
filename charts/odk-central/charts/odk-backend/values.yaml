@@ -80,11 +80,14 @@ postgresql:
   architecture: standalone
 
 # domain name of installation
+# domain: "example.com"
 domain: ""
 # https port of installation
-httpsPort: "443"
+# httpsPort: "443"
+httpsPort: ""
 # system admin email
-sysAdminEmail: "admin@example.com"
+# sysAdminEmail: "admin@example.com"
+sysAdminEmail: ""
 # Enketo Url
 enketo:
   apiKeySecret:

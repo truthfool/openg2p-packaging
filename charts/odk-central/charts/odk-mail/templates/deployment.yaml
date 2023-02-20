@@ -35,7 +35,7 @@ spec:
               {{- if .Values.mailName }}
               value: {{ .Values.mailName }}
               {{- else }}
-              value: {{ .Values.global.hostname }}
+              value: {{ .Values.global.mailname }}
               {{- end }}
             - name: RELAY_NETWORKS
               value: {{ .Values.relayNetworks | quote }}

@@ -84,7 +84,13 @@ spec:
           - name: enketo-api-key
             mountPath: /etc/secrets/enketo-api-key
             subPath: {{ .Values.enketo.apiKeySecret.key }}
+          - name: backend-conf
+            mountPath: /usr/share/odk/config.json.template
+            subPath: config.json.template
       volumes:
       - name: enketo-api-key
         secret:
           secretName: {{ .Values.enketo.apiKeySecret.name }}
+      - name: backend-conf
+        configMap:
+          name: {{ include "common.names.fullname" . }}

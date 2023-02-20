@@ -1,6 +1,7 @@
 global:
   hostname: "openg2p.sandbox.net"
   selfServiceHostname: "selfservice.openg2p.sandbox.net"
+  mailname: "openg2p.sandbox.net"
 
 odoo:
   image:

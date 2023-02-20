@@ -1,5 +1,6 @@
 global:
   hostname: "odk.openg2p.sandbox.net"
+  mailname: "openg2p.sandbox.net"
   httpsPort: "443"
   sysAdminEmail: "admin@odk.openg2p.sandbox.net"
 

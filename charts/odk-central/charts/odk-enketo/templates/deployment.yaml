@@ -89,7 +89,7 @@ spec:
       volumes:
         - name: enketo-secrets
           secret:
-            secretName: enketo
+            secretName: {{ include "common.names.fullname" . }}
         - name: enketo-conf
           configMap:
-            name: enketo
+            name: {{ include "common.names.fullname" . }}

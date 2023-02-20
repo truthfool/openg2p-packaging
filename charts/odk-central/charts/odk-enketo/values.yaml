@@ -68,6 +68,9 @@ extraEnvVarsCM: []
 
 extraEnvVarsSecret: []
 
+# domain: "example.com"
 domain: ""
-httpsPort: "443"
-supportEmail: "admin@example.com"
+# httpsPort: "443"
+httpsPort: ""
+# supportEmail: "admin@example.com"
+supportEmail: ""

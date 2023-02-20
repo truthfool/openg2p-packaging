@@ -69,6 +69,7 @@ extraEnvVarsCM: []
 extraEnvVarsSecret: []
 
 # domain name of installation
+# mailName: "example.com"
 mailName: ""
 relayNetworks: ":10.0.0.0/8"
 eximSecret:

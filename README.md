@@ -5,7 +5,7 @@ Along with instructions to install them.
 
 ## Packaging Instructions
 
-- Refer to [Packaging Instructions](https://docs.openg2p.org/guides/deployment-guide/post-install-instructions)
+- Refer to [Packaging Instructions](https://docs.openg2p.org/guides/deployment-guide/packaging-openg2p-docker)
 
 ## Installation
 

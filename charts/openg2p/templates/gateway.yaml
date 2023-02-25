@@ -15,7 +15,11 @@ spec:
       name: http
       protocol: HTTP
     hosts:
+      {{- if .Values.istio.gateway.host }}
       - {{ .Values.istio.gateway.host }}
+      {{- else }}
+      - {{ .Values.global.hostname }}
+      {{- end }}
     {{- if .Values.istio.gateway.httpTlsRedirect }}
     tls:
       httpsRedirect: true
@@ -25,7 +29,11 @@ spec:
       name: https
       protocol: HTTPS
     hosts:
+      {{- if .Values.istio.gateway.host }}
       - {{ .Values.istio.gateway.host }}
+      {{- else }}
+      - {{ .Values.global.hostname }}
+      {{- end }}
     {{- if .Values.istio.gateway.tls.enabled }}
     tls:
       {{ toYaml (omit .Values.istio.gateway.tls "enabled") | nindent 6 }}

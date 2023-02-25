@@ -4,5 +4,3 @@ node-ip: <nodeip>
 node-label: "shouldInstallIstioIngress=true"
 disable:
   - rke2-ingress-nginx
-tls-san:
-  - <all node hostnames and ips of server nodes as list>

@@ -12,6 +12,9 @@ central:
         persistence:
           enabled: true
           size: 1Gi
+    centralledger-handler-transfer-prepare:
+      config:
+        enable_on_us_transfers: true
   enabled: true
 
 ml-api-adapter:

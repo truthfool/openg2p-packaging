@@ -15,6 +15,13 @@ odoo:
 
   odooEmail: admin
 
+  postgresql:
+    primary:
+      extendedConfiguration: |-
+        wal_level = logical
+        max_wal_senders = 20
+        max_replication_slots = 10
+
   livenessProbe:
     enabled: false
 

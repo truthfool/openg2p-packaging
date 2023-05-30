@@ -7,9 +7,15 @@
   - `ml-istio.yaml`
 - Run the following commands.
   - ```sh
-    kubectl create ns ml
     helm repo add mojaloop http://mojaloop.io/helm/repo/
+    helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo update
+    kubectl create ns ml
+    ```
+  - ```sh
+    helm -n ml install mysqldb bitnami/mysql -f values-ml-mysql.yaml
+    helm -n ml install cl-mongodb bitnami/mongodb -f values-ml-mongodb.yaml
+    helm -n ml install kafka bitnami/kafka -f values-ml-kafka.yaml
     ```
   - ```sh
     helm -n ml install ml mojaloop/mojaloop -f values-mojaloop.yaml

@@ -13,8 +13,8 @@ data:
       "ALLOW_CREDENTIALS": false,
       "PAYMENT_EXECUTION_METHOD": "MOJALOOP",
       "PAYER_DFSP_ID": "dfsp1",
-      "PAYER_ID_TYPE": "IBAN",
-      "PAYER_ID_VALUE": "IC11in02tn040000012345"
+      "PAYER_ID_TYPE": "ACCOUNT_ID",
+      "PAYER_ID_VALUE": "3344937561"
     }
   pil-payment-multiplexer.json: |
     {

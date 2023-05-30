@@ -37,9 +37,7 @@ transaction-requests-service:
   enabled: true
 
 thirdparty:
-  enabled: true
-  mojaloop-simulator:
-    enabled: false
+  enabled: false
 
 simulator:
   enabled: false
@@ -51,7 +49,7 @@ mojaloop-ttk-simulators:
   enabled: false
 
 mojaloop-bulk:
-  enabled: true
+  enabled: false
 
 ml-testing-toolkit:
   enabled: false

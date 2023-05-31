@@ -7,6 +7,7 @@ server_env = git://15.0//http://github.com/oca/server-env
 storage = git://15.0//http://github.com/oca/storage
 #
 odoo_json_field = git://15.0-develop//https://github.com/openg2p/odoo-json-field
+openg2p_documents = git://15.0-develop-pilot001//https://github.com/openg2p/openg2p-documents
 openg2p_registry = git://15.0-develop-pilot001//https://github.com/openg2p/openg2p-registry
 openg2p_program = git://15.0-develop-pilot001//https://github.com/openg2p/openg2p-program
 openg2p_mts = git://15.0-develop//https://github.com/openg2p/openg2p-mts
